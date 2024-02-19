@@ -52,7 +52,7 @@
    [potok.v2.core :as ptk]))
 
 ;; Change this to :info :debug or :trace to debug this module, or :warn to reset to default
-(log/set-level! :warn)
+(log/set-level! :debug)
 
 (defn- log-changes
   [changes file]

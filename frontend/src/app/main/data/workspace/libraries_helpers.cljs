@@ -30,7 +30,7 @@
    [clojure.set :as set]))
 
 ;; Change this to :info :debug or :trace to debug this module, or :warn to reset to default
-(log/set-level! :warn)
+(log/set-level! :trace)
 
 (declare generate-sync-container)
 (declare generate-sync-shape)
@@ -601,6 +601,10 @@
                        (and reset?
                             (ctkl/get-deleted-component library (:component-id shape-inst))))
         component-shape (ctn/get-component-shape (:objects container) shape-inst)]
+    (log/trace :msg "component-shape"
+               :shape (:name component-shape)
+               :id (pretty-uuid (:id component-shape))
+               :component-id (pretty-uuid (:component-id component-shape)))
     (if (and (ctk/in-component-copy? shape-inst)
              (or (= (:id component) (:component-id component-shape)) reset?)) ; In a normal sync, we don't want to sync remote mains, only near
       (let [redirect-shaperef (partial redirect-shaperef container libraries)
@@ -613,10 +617,12 @@
                          (if (and reset? components-v2)
                            (ctf/find-remote-shape container libraries shape-inst)
                            (ctf/get-ref-shape library component shape-inst)))
+            _ (log/trace :msg "shape-main" :shape (:name shape-main) :id (pretty-uuid (:id shape-main)))
 
             shape-inst (if (and reset? components-v2)
                          (redirect-shaperef shape-inst shape-main)
                          shape-inst)
+            _ (log/trace :msg "shape-inst" :shape (:name shape-inst) :id (pretty-uuid (:id shape-inst)))
 
             initial-root?  (:component-root shape-inst)
 
@@ -715,11 +721,14 @@
 
           children-inst       (vec (ctn/get-direct-children container shape-inst))
           children-main       (vec (ctn/get-direct-children component-container shape-main))
+          ;; _ (log/trace :msg "children-main" :shape children-main)
+          ;; _ (log/trace :msg "children-inst" :shape children-inst)
 
           children-inst (if (and reset? components-v2)
                           (map #(redirect-shaperef %) children-inst) children-inst)
 
           only-inst (fn [changes child-inst]
+                      ;; (log/trace :msg "only-inst" :shape (:name child-inst) :id (pretty-uuid (:id child-inst)))
                       (if-not (and omit-touched?
                                    (contains? (:touched shape-inst)
                                               :shapes-group))
@@ -730,6 +739,7 @@
                         changes))
 
           only-main (fn [changes child-main]
+                      ;; (log/trace :msg "only-main" :shape (:name child-main) :id (pretty-uuid (:id child-main)))
                       (if-not (and omit-touched?
                                    (contains? (:touched shape-inst)
                                               :shapes-group))
@@ -746,6 +756,11 @@
                         changes))
 
           both (fn [changes child-inst child-main]
+                 (log/trace :msg "both"
+                            :shape-inst (:name child-inst)
+                            :id-inst (pretty-uuid (:id child-inst))
+                            :shape-main (:name child-main)
+                            :id-main (pretty-uuid (:id child-main)))
                  (generate-sync-shape-direct-recursive changes
                                                        container
                                                        child-inst
