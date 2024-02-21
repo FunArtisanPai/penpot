@@ -8,6 +8,7 @@
   "Drawing components."
   (:require
    [app.common.math :as mth]
+   [app.common.types.shape :as cts]
    [app.main.ui.shapes.path :refer [path-shape]]
    [app.main.ui.workspace.shapes :as shapes]
    [app.main.ui.workspace.shapes.path.editor :refer [path-editor]]
@@ -19,14 +20,20 @@
 (mf/defc draw-area
   [{:keys [shape zoom tool] :as props}]
 
-  [:g.draw-area
-   [:g {:style {:pointer-events "none"}}
-    [:& shapes/shape-wrapper {:shape shape}]]
+  ;; TODO: Mi yo de mañana sabrá que hacer con esto.
+  ;; Básicamente el problema es que el check-shape-props
+  ;; intenta validar una mandanga QUE NO es un shape.
+  ;; y cuando llega aquí el mf::wrap [mf/memo' % check-shape-props]
+  ;; casca porque no es un shape.
+  (when (cts/shape? shape)
+    [:g.draw-area
+     [:g {:style {:pointer-events "none"}}
+      [:& shapes/shape-wrapper {:shape shape}]]
 
-   (case tool
-     :path      [:& path-editor {:shape shape :zoom zoom}]
-     :curve     [:& path-shape {:shape shape :zoom zoom}]
-     #_:default [:& generic-draw-area {:shape shape :zoom zoom}])])
+     (case tool
+       :path      [:& path-editor {:shape shape :zoom zoom}]
+       :curve     [:& path-shape {:shape shape :zoom zoom}]
+       #_:default [:& generic-draw-area {:shape shape :zoom zoom}])]))
 
 (mf/defc generic-draw-area
   [{:keys [shape zoom]}]
