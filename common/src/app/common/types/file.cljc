@@ -117,6 +117,12 @@
   [libraries component-id & {:keys [include-deleted?] :or {include-deleted? false}}]
   (some #(ctkl/get-component (:data %) component-id include-deleted?) (vals libraries)))
 
+(defn find-component-file
+  [file libraries component-file]
+  (if (and (some? file) (= component-file (:id file)))
+    file
+    (get libraries component-file)))
+ 
 (defn get-component
   "Retrieve a component from a library."
   [libraries library-id component-id & {:keys [include-deleted?] :or {include-deleted? false}}]
@@ -184,25 +190,66 @@
   (->> (gsts/get-children-seq (:id root-copy) (:objects file-data))
        (d/seek #(= (:shape-ref %) (:id main-shape)))))
 
+(defn direct-copy?
+  "Check if the shape is in a direct copy of the component (i.e. the shape-ref points to shapes inside
+   the component)."
+  [shape component page file libraries]
+  ;; It's not enough to look in the immediate head, because when user duplicate pages, copies are created
+  ;; with the same ids. So we need to look up from top head to bottom and take the first one that matches.
+  ;;
+  ;; Example:
+  ;; [Page: Page 1] 1000d56f-afc2-80e2-8003-e3d7699b6b84
+  ;;   Root Frame 00000000-0000-0000-0000-000000000000 
+  ;; 
+  ;;     {Rectangle} 8891473d-1db0-800f-8003-e3d770c3548f  # [Component 8891473d-1db0-800f-8003-e3d770c4cd7b]
+  ;;       Rectangle 8891473d-1db0-800f-8003-e3d76bc0436b 
+  ;; 
+  ;;     {Board1} 8891473d-1db0-800f-8003-e3d7743e4da6  # [Component 8891473d-1db0-800f-8003-e3d77f12dddd]
+  ;;       Rectangle 8891473d-1db0-800f-8003-e3d7766d39a5  @--> Rectangle 8891473d-1db0-800f-8003-e3d770c3548f [Component 8891473d-1db0-800f-8003-e3d770c4cd7b]
+  ;;         Rectangle 8891473d-1db0-800f-8003-e3d7766d39a6  ---> REctangle 8891473d-1db0-800f-8003-e3d76bc0436b
+  ;; 
+  ;; [Page: Page 2] 8891473d-1db0-800f-8003-e3d781aa14c2
+  ;;   Root Frame 00000000-0000-0000-0000-000000000000 
+  ;; 
+  ;;     {Board2} 8891473d-1db0-800f-8003-e3d78f41e67c  # [Component 8891473d-1db0-800f-8003-e3d78f429628]
+  ;;       Board1 8891473d-1db0-800f-8003-e3d7743e4da6  @--> Board 8891473d-1db0-800f-8003-e3d7743e4da6 [Component 8891473d-1db0-800f-8003-e3d77f12dddd]
+  ;;         Rectangle 8891473d-1db0-800f-8003-e3d7766d39a5  @--> Rectangle 8891473d-1db0-800f-8003-e3d7766d39a5 [Component 8891473d-1db0-800f-8003-e3d770c4cd7b]
+  ;;           Rectangle 8891473d-1db0-800f-8003-e3d7766d39a6  ---> Rectangle 8891473d-1db0-800f-8003-e3d7766d39a6
+  ;; 
+  ;; [Page: Page 3] 8891473d-1db0-800f-8003-e3d79a76246a
+  ;;   Root Frame 00000000-0000-0000-0000-000000000000 
+  ;; 
+  ;;     Board2 8891473d-1db0-800f-8003-e3d78f41e67c  #--> Board 8891473d-1db0-800f-8003-e3d78f41e67c [Component 8891473d-1db0-800f-8003-e3d78f429628]
+  ;;       Board1 8891473d-1db0-800f-8003-e3d7743e4da6  @--> Board 8891473d-1db0-800f-8003-e3d7743e4da6 [Component 8891473d-1db0-800f-8003-e3d77f12dddd]
+  ;;         Rectangle 8891473d-1db0-800f-8003-e3d7766d39a5  @--> Rectangle 8891473d-1db0-800f-8003-e3d7766d39a5 [Component 8891473d-1db0-800f-8003-e3d770c4cd7b]
+  ;;           Rectangle 8891473d-1db0-800f-8003-e3d7766d39a6  ---> Rectangle 8891473d-1db0-800f-8003-e3d7766d39a6
+  ;;
+  ;; TODO: move this to a suitable document
+  (let [head-shapes (ctn/get-parent-heads (:objects page) shape)
+        ref-component (loop [head-shapes head-shapes]
+                        (let [head-shape     (first head-shapes)
+                              head-file      (find-component-file file libraries (:component-file head-shape))
+                              head-component (when (some? head-file)
+                                               (ctkl/get-component (:data head-file) (:component-id head-shape) false))]
+                          (when head-component
+                            (if (= (:shape-ref head-shape) (:main-instance-id head-component))
+                              head-component
+                              (recur (rest head-shapes))))))]
+    (true? (= (:id component) (:id ref-component)))))
+
 (defn find-ref-shape
   "Locate the nearest component in the local file or libraries, and retrieve the shape
    referenced by the instance shape."
   [file page libraries shape & {:keys [include-deleted?] :or {include-deleted? false}}]
-  (let [parent-heads (->> (cfh/get-parents-with-self (:objects page) (:id shape))
-                          (filter ctk/instance-head?)
-                          (reverse))
-
-        find-ref-shape-in-head
+  (let [find-ref-shape-in-head
         (fn [head-shape]
-          (let [head-file      (if (and (some? file) (= (:component-file head-shape) (:id file)))
-                                 file
-                                 (get libraries (:component-file head-shape)))
+          (let [head-file      (find-component-file file libraries (:component-file head-shape))
                 head-component (when (some? head-file)
                                  (ctkl/get-component (:data head-file) (:component-id head-shape) include-deleted?))]
             (when (some? head-component)
               (get-ref-shape (:data head-file) head-component shape))))]
 
-    (d/seek find-ref-shape-in-head parent-heads)))
+    (d/seek find-ref-shape-in-head (ctn/get-parent-heads (:objects page) shape))))
 
 (defn find-remote-shape
   "Recursively go back by the :shape-ref of the shape until find the correct shape of the original component"

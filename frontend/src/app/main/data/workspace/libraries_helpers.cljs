@@ -606,7 +606,7 @@
                :id (pretty-uuid (:id component-shape))
                :component-id (pretty-uuid (:component-id component-shape)))
     (if (and (ctk/in-component-copy? shape-inst)
-             (or (= (:id component) (:component-id component-shape)) reset?)) ; In a normal sync, we don't want to sync remote mains, only near
+             (or (ctf/direct-copy? shape-inst component container nil libraries) reset?)) ; In a normal sync, we don't want to sync remote mains, only near
       (let [redirect-shaperef (partial redirect-shaperef container libraries)
             library    (dm/get-in libraries [(:component-file shape-inst) :data])
             component  (or (ctkl/get-component library (:component-id shape-inst))
