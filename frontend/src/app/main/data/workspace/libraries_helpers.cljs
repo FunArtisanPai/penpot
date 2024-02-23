@@ -27,7 +27,8 @@
    [app.common.types.typography :as cty]
    [app.main.data.workspace.state-helpers :as wsh]
    [cljs.spec.alpha :as s]
-   [clojure.set :as set]))
+   [clojure.set :as set]
+   [cuerdas.core :as str]))
 
 ;; Change this to :info :debug or :trace to debug this module, or :warn to reset to default
 (log/set-level! :warn)
@@ -983,34 +984,50 @@
         :else
         (if (ctk/is-main-of? child-main child-inst)
           (recur (next children-inst)
-                 (next children-main)
-                 (both-cb changes child-inst child-main))
+            (next children-main)
+            (both-cb changes child-inst child-main))
+          
+          ;; TODO: aquí añadir otro if
+          ;;  ver si es swapped y hacer next de los dos sin both-cb
 
-          (let [child-inst' (d/seek #(ctk/is-main-of? child-main %) children-inst)
-                child-main' (d/seek #(ctk/is-main-of? % child-inst) children-main)]
-            (cond
-              (nil? child-inst')
-              (recur children-inst
-                     (next children-main)
-                     (only-main-cb changes child-main))
 
-              (nil? child-main')
-              (recur (next children-inst)
-                     children-main
-                     (only-inst-cb changes child-inst))
+          (if (some #(str/starts-with? (name %) "swapped-from") (:touched child-inst))
+            (recur (next children-inst)
+              (next children-main)
+              changes)
 
-              :else
-              (if inverse?
+            (let [child-inst' (d/seek #(ctk/is-main-of? child-main %) children-inst)
+                  child-main' (d/seek #(ctk/is-main-of? % child-inst) children-main)]
+
+              (println ":::")
+
+              (println "children-inst" (:name child-inst) (:id child-inst) (:shape-ref child-inst) (:touched child-inst))
+              (println "child-main" (:name child-main) (:id child-inst) (:shape-ref child-main) (:touched child-main))
+            ;; (println "child-main" child-main)
+
+              (cond
+                (nil? child-inst')
+                (recur children-inst
+                  (next children-main)
+                  (only-main-cb changes child-main))
+
+                (nil? child-main')
                 (recur (next children-inst)
-                       (remove #(= (:id %) (:id child-main')) children-main)
-                       (-> changes
-                           (both-cb child-inst child-main')
-                           (moved-cb child-inst child-main')))
-                (recur (remove #(= (:id %) (:id child-inst')) children-inst)
-                       (next children-main)
-                       (-> changes
-                           (both-cb child-inst' child-main)
-                           (moved-cb child-inst' child-main)))))))))))
+                  children-main
+                  (only-inst-cb changes child-inst))
+
+                :else
+                (if inverse?
+                  (recur (next children-inst)
+                    (remove #(= (:id %) (:id child-main')) children-main)
+                    (-> changes
+                        (both-cb child-inst child-main')
+                        (moved-cb child-inst child-main')))
+                  (recur (remove #(= (:id %) (:id child-inst')) children-inst)
+                    (next children-main)
+                    (-> changes
+                        (both-cb child-inst' child-main)
+                        (moved-cb child-inst' child-main))))))))))))
 
 (defn- add-shape-to-instance
   [changes component-shape index component-page container root-instance root-main omit-touched? set-remote-synced?]
@@ -1298,24 +1315,26 @@
                           (if (:remote-synced origin-shape)
                             nil
                             (set/union
-                             (:touched dest-shape)
-                             (:touched origin-shape))))]
+                              (:touched dest-shape)
+                              (:touched origin-shape))))]
+        
+        (println "new-touched" (:name dest-shape) new-touched)
 
         (-> changes
             (update :redo-changes conj (make-change
-                                        container
-                                        {:type :mod-obj
-                                         :id (:id dest-shape)
-                                         :operations
-                                         [{:type :set-touched
-                                           :touched new-touched}]}))
+                                         container
+                                         {:type :mod-obj
+                                          :id (:id dest-shape)
+                                          :operations
+                                          [{:type :set-touched
+                                            :touched new-touched}]}))
             (update :undo-changes conj (make-change
-                                        container
-                                        {:type :mod-obj
-                                         :id (:id dest-shape)
-                                         :operations
-                                         [{:type :set-touched
-                                           :touched (:touched dest-shape)}]})))))))
+                                         container
+                                         {:type :mod-obj
+                                          :id (:id dest-shape)
+                                          :operations
+                                          [{:type :set-touched
+                                            :touched (:touched dest-shape)}]})))))))
 
 (defn- change-remote-synced
   [changes shape container remote-synced?]

@@ -876,6 +876,7 @@
     (watch [it state _]
       (let [page      (wsh/lookup-page state)
             libraries (wsh/get-libraries state)
+            component (ctf/get-component libraries file-id id-new-component)
 
             objects   (:objects page)
             position  (gpt/point (:x shape) (:y shape))
@@ -886,15 +887,15 @@
 
             [new-shape changes]
             (dwlh/generate-instantiate-component changes
-                                                 objects
-                                                 file-id
-                                                 id-new-component
-                                                 position
-                                                 page
-                                                 libraries
-                                                 nil
-                                                 (:parent-id shape)
-                                                 (:frame-id shape))
+              objects
+              file-id
+              id-new-component
+              position
+              page
+              libraries
+              nil
+              (:parent-id shape)
+              (:frame-id shape))
 
             changes
             (-> changes
@@ -903,11 +904,20 @@
 
                 ;; We need to set the same index as the original shape
                 (pcb/change-parent (:parent-id shape) [new-shape] index {:component-swap true
-                                                                         :ignore-touched true}))]
+                                                                         :ignore-touched true})
 
+                ;; TODO add to :touched :swapped-from-{{id-del-main/shape-ref}}
+                (dwlh/change-touched
+                  (assoc new-shape :touched #{(keyword (dm/str "swapped-from-" (:shape-ref shape)))})
+                  shape
+                  (ctn/make-container page :page)
+                  {:copy-touched? true}))]
+        
+        (println "new-shape" (:name new-shape) (:id new-shape) "shape" (:name shape))
+ 
         ;; First delete so we don't break the grid layout cells
         (rx/of (dch/commit-changes changes)
-               (dws/select-shape (:id new-shape) true))))))
+          (dws/select-shape (:id new-shape) true))))))
 
 (defn- component-swap
   "Swaps a component with another one"
