@@ -96,6 +96,11 @@ function run-devenv-shell {
 }
 
 
+function restart-devenv {
+    stop-devenv
+    run-devenv-tmux
+}
+
 function build {
     echo ">> build start: $1"
     local version=$(print-current-version);
@@ -198,6 +203,7 @@ function usage {
     echo "- stop-devenv                      Stops the development oriented docker compose service."
     echo "- drop-devenv                      Remove the development oriented docker compose containers, volumes and clean images."
     echo "- run-devenv                       Attaches to the running devenv container and starts development environment"
+    echo "- restart-devenv                   Stops the development oriented docker compose service. && Attaches to the running devenv container and starts development environment"
     echo ""
 }
 
@@ -228,6 +234,9 @@ case $1 in
         ;;
     run-devenv)
         run-devenv-tmux ${@:2}
+        ;;
+    restart-devenv)
+        restart-devenv ${@:2}
         ;;
     run-devenv-shell)
         run-devenv-shell ${@:2}
