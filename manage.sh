@@ -98,7 +98,18 @@ function run-devenv-shell {
 
 function restart-devenv {
     stop-devenv
-    run-devenv-tmux
+
+    if [[ ! $(docker ps -f "name=penpot-devenv-main" -q) ]]; then
+        start-devenv
+    fi
+
+    reload-config
+
+    docker exec -ti penpot-devenv-main sudo -EH -u penpot /home/start-tmux.sh
+}
+
+function reload-config {
+    docker exec -ti penpot-devenv-main sudo -EH -u penpot /home/penpot/penpot/docker/devenv/files/config-nginx.sh
 }
 
 function build {
