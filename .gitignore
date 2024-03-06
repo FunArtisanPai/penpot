@@ -81,6 +81,7 @@ pnpm-debug.log*
 # Editor directories and files
 .idea
 .vscode
+.vscode/*
 .fleet
 *.suo
 *.ntvs*
@@ -89,4 +90,4 @@ pnpm-debug.log*
 *.sw?
 /nohup.out
 
-/*.iml
+*.iml
