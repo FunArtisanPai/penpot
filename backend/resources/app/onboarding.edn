@@ -1,156 +1,156 @@
 [{:id "50-social-media-icons"
   :name "50-Social-media-Icons"
-  :file-uri "http://localhost:3449/penpot-registry/50-social-media-icons.penpot"}
+  :file-uri "http://localhost:3449/penpot-registry/50-Social-media-Icons.penpot"}
  {:id "accessibility-documentation-template"
   :name "Accessibility Documentation Template"
-  :file-uri "http://localhost:3449/penpot-registry/accessibility-documentation-template.penpot"}
+  :file-uri "http://localhost:3449/penpot-registry/Accessibility%20Documentation%20Template.penpot"}
  {:id "ant-design-ui-kit-lite"
   :name "Ant-Design-UI-Kit-Lite"
-  :file-uri "http://localhost:3449/penpot-registry/ant-design-ui-kit-lite.penpot"}
+  :file-uri "http://localhost:3449/penpot-registry/Ant-Design-UI-Kit-Lite.penpot"}
  {:id "avataaars-by-pablo-stanley"
   :name "Avataaars-by-Pablo-Stanley"
-  :file-uri "http://localhost:3449/penpot-registry/avataaars-by-pablo-stanley.penpot"}
+  :file-uri "http://localhost:3449/penpot-registry/Avataaars-by-Pablo-Stanley.penpot"}
  {:id "black-&-white-mobile-templates"
   :name "Black-&-White-Mobile-Templates"
-  :file-uri "http://localhost:3449/penpot-registry/black-&-white-mobile-templates.penpot"}
+  :file-uri "http://localhost:3449/penpot-registry/Black-&-White-Mobile-Templates.penpot"}
  {:id "board-game-cards-templates"
   :name "Board-game-cards-templates"
-  :file-uri "http://localhost:3449/penpot-registry/board-game-cards-templates.penpot"}
+  :file-uri "http://localhost:3449/penpot-registry/Board-game-cards-templates.penpot"}
  {:id "boostrap-icons"
   :name "Boostrap Icons"
-  :file-uri "http://localhost:3449/penpot-registry/boostrap-icons.penpot"}
+  :file-uri "http://localhost:3449/penpot-registry/Boostrap%20Icons.penpot"}
  {:id "cartas-creativas"
   :name "Cartas Creativas"
-  :file-uri "http://localhost:3449/penpot-registry/cartas-creativas.penpot"}
+  :file-uri "http://localhost:3449/penpot-registry/Cartas%20Creativas.penpot"}
  {:id "circumicons"
   :name "CircumIcons"
-  :file-uri "http://localhost:3449/penpot-registry/circumicons.penpot"}
+  :file-uri "http://localhost:3449/penpot-registry/CircumIcons.penpot"}
  {:id "cocomaterial"
   :name "Cocomaterial"
-  :file-uri "http://localhost:3449/penpot-registry/cocomaterial.penpot"}
+  :file-uri "http://localhost:3449/penpot-registry/Cocomaterial.penpot"}
  {:id "community-cards-grid-theme"
   :name "Community-Cards-grid-theme"
-  :file-uri "http://localhost:3449/penpot-registry/community-cards-grid-theme.penpot"}
+  :file-uri "http://localhost:3449/penpot-registry/Community-Cards-grid-theme.penpot"}
  {:id "community-covers"
   :name "community-covers"
   :file-uri "http://localhost:3449/penpot-registry/community-covers.penpot"}
  {:id "company-logos"
   :name "Company logos"
-  :file-uri "http://localhost:3449/penpot-registry/company-logos.penpot"}
+  :file-uri "http://localhost:3449/penpot-registry/Company%20logos.penpot"}
  {:id "coreui-designsystem-(DEMO)"
   :name "CoreUI DesignSystem (DEMO)"
-  :file-uri "http://localhost:3449/penpot-registry/coreui-designsystem-(DEMO).penpot"}
+  :file-uri "http://localhost:3449/penpot-registry/CoreUI%20DesignSystem%20(DEMO).penpot"}
  {:id "coreui-icon-pack"
   :name "CoreUI Icon Pack"
-  :file-uri "http://localhost:3449/penpot-registry/coreui-icon-pack.penpot"}
+  :file-uri "http://localhost:3449/penpot-registry/CoreUI%20Icon%20Pack.penpot"}
  {:id "csd-matrix"
   :name "CSD-Matrix"
-  :file-uri "http://localhost:3449/penpot-registry/csd-matrix.penpot"}
+  :file-uri "http://localhost:3449/penpot-registry/CSD-Matrix.penpot"}
  {:id "curriculum"
   :name "curriculum"
   :file-uri "http://localhost:3449/penpot-registry/curriculum.penpot"}
  {:id "dashboard-ui-starter-kit"
   :name "Dashboard UI Starter Kit"
-  :file-uri "http://localhost:3449/penpot-registry/dashboard-ui-starter-kit.penpot"}
+  :file-uri "http://localhost:3449/penpot-registry/Dashboard%20UI%20Starter%20Kit.penpot"}
  {:id "empathy-maps"
   :name "Empathy-Maps"
-  :file-uri "http://localhost:3449/penpot-registry/empathy-maps.penpot"}
+  :file-uri "http://localhost:3449/penpot-registry/Empathy-Maps.penpot"}
  {:id "feather-icons"
   :name "feather-icons"
   :file-uri "http://localhost:3449/penpot-registry/feather-icons.penpot"}
  {:id "firefox-browser-mockup"
   :name "Firefox browser mockup"
-  :file-uri "http://localhost:3449/penpot-registry/firefox-browser-mockup.penpot"}
+  :file-uri "http://localhost:3449/penpot-registry/Firefox%20browser%20mockup.penpot"}
  {:id "flex-layout-playground"
   :name "Flex Layout Playground"
-  :file-uri "http://localhost:3449/penpot-registry/flex-layout-playground.penpot"}
+  :file-uri "http://localhost:3449/penpot-registry/Flex%20Layout%20Playground.penpot"}
  {:id "fontawesome"
   :name "FontAwesome"
-  :file-uri "http://localhost:3449/penpot-registry/fontawesome.penpot"}
+  :file-uri "http://localhost:3449/penpot-registry/FontAwesome.penpot"}
  {:id "gnome-components"
   :name "GNOME-Components"
-  :file-uri "http://localhost:3449/penpot-registry/gnome-components.penpot"}
+  :file-uri "http://localhost:3449/penpot-registry/GNOME-Components.penpot"}
  {:id "gopher-illustrations"
   :name "Gopher-illustrations"
-  :file-uri "http://localhost:3449/penpot-registry/gopher-illustrations.penpot"}
+  :file-uri "http://localhost:3449/penpot-registry/Gopher-illustrations.penpot"}
  {:id "grid-layout-playground"
   :name "Grid layout playground"
-  :file-uri "http://localhost:3449/penpot-registry/grid-layout-playground.penpot"}
+  :file-uri "http://localhost:3449/penpot-registry/Grid%20layout%20playground.penpot"}
  {:id "heroicons"
   :name "Heroicons"
-  :file-uri "http://localhost:3449/penpot-registry/heroicons.penpot"}
+  :file-uri "http://localhost:3449/penpot-registry/Heroicons.penpot"}
  {:id "interactive-music-app"
   :name "Interactive-music-app"
-  :file-uri "http://localhost:3449/penpot-registry/interactive-music-app.penpot"}
+  :file-uri "http://localhost:3449/penpot-registry/Interactive-music-app.penpot"}
  {:id "ios-icon-template"
   :name "iOS icon template"
-  :file-uri "http://localhost:3449/penpot-registry/ios-icon-template.penpot"}
+  :file-uri "http://localhost:3449/penpot-registry/iOS%20icon%20template.penpot"}
  {:id "just-another-project-starter-template"
   :name "Just Another Project Starter Template"
-  :file-uri "http://localhost:3449/penpot-registry/just-another-project-starter-template.penpot"}
+  :file-uri "http://localhost:3449/penpot-registry/Just%20Another%20Project%20Starter%20Template.penpot"}
  {:id "just-another-resume-template"
   :name "Just Another Resume Template"
-  :file-uri "http://localhost:3449/penpot-registry/just-another-resume-template.penpot"}
+  :file-uri "http://localhost:3449/penpot-registry/Just%20Another%20Resume%20Template.penpot"}
  {:id "lean-ux-canvas"
   :name "Lean-UX-Canvas"
-  :file-uri "http://localhost:3449/penpot-registry/lean-ux-canvas.penpot"}
+  :file-uri "http://localhost:3449/penpot-registry/Lean-UX-Canvas.penpot"}
  {:id "lucide-icons"
   :name "Lucide-icons"
-  :file-uri "http://localhost:3449/penpot-registry/lucide-icons.penpot"}
+  :file-uri "http://localhost:3449/penpot-registry/Lucide-icons.penpot"}
  {:id "mastodon-social-app"
   :name "Mastodon Social App"
-  :file-uri "http://localhost:3449/penpot-registry/mastodon-social-app.penpot"}
+  :file-uri "http://localhost:3449/penpot-registry/Mastodon%20Social%20App.penpot"}
  {:id "material-design-3"
   :name "Material Design 3"
-  :file-uri "http://localhost:3449/penpot-registry/material-design-3.penpot"}
+  :file-uri "http://localhost:3449/penpot-registry/Material%20Design%203.penpot"}
  {:id "material-3-mobile-viewports"
   :name "Material-3-Mobile-Viewports"
-  :file-uri "http://localhost:3449/penpot-registry/material-3-mobile-viewports.penpot"}
+  :file-uri "http://localhost:3449/penpot-registry/Material-3-Mobile-Viewports.penpot"}
  {:id "material-design-icons"
   :name "Material-Design-Icons"
-  :file-uri "http://localhost:3449/penpot-registry/material-design-icons.penpot"}
+  :file-uri "http://localhost:3449/penpot-registry/Material-Design-Icons.penpot"}
  {:id "material-design-icons-light"
   :name "Material-Design-Icons-Light"
-  :file-uri "http://localhost:3449/penpot-registry/material-design-icons-light.penpot"}
+  :file-uri "http://localhost:3449/penpot-registry/Material-Design-Icons-Light.penpot"}
  {:id "material-design-kit"
   :name "Material-Design-Kit"
-  :file-uri "http://localhost:3449/penpot-registry/material-design-kit.penpot"}
+  :file-uri "http://localhost:3449/penpot-registry/Material-Design-Kit.penpot"}
  {:id "neomorphic-light-ui-kit"
   :name "Neomorphic Light UI kit"
-  :file-uri "http://localhost:3449/penpot-registry/neomorphic-light-ui-kit.penpot"}
+  :file-uri "http://localhost:3449/penpot-registry/Neomorphic%20Light%20UI%20kit.penpot"}
  {:id "nextcloud-design-system"
   :name "Nextcloud design system"
-  :file-uri "http://localhost:3449/penpot-registry/nextcloud-design-system.penpot"}
+  :file-uri "http://localhost:3449/penpot-registry/Nextcloud%20design%20system.penpot"}
  {:id "open-color-scheme-(v1.9.1)"
   :name "Open Color Scheme (v1.9.1)"
-  :file-uri "http://localhost:3449/penpot-registry/open-color-scheme-(v1.9.1).penpot"}
+  :file-uri "http://localhost:3449/penpot-registry/Open%20Color%20Scheme%20(v1.9.1).penpot"}
  {:id "oss-product management-processes"
   :name "OSS-Product management-processes"
-  :file-uri "http://localhost:3449/penpot-registry/oss-product management-processes.penpot"}
+  :file-uri "http://localhost:3449/penpot-registry/OSS-Product%20management-processes.penpot"}
  {:id "penpot-slides-template"
   :name "Penpot slides template"
-  :file-uri "http://localhost:3449/penpot-registry/penpot-slides-template.penpot"}
+  :file-uri "http://localhost:3449/penpot-registry/Penpot%20slides%20template.penpot"}
  {:id "penpot-community-wireframe"
   :name "penpot-community-wireframe"
   :file-uri "http://localhost:3449/penpot-registry/penpot-community-wireframe.penpot"}
  {:id "penpot-design-system"
   :name "Penpot-Design-system"
-  :file-uri "http://localhost:3449/penpot-registry/penpot-design-system.penpot"}
+  :file-uri "http://localhost:3449/penpot-registry/Penpot-Design-system.penpot"}
  {:id "persona-template"
   :name "Persona template"
-  :file-uri "http://localhost:3449/penpot-registry/persona-template.penpot"}
+  :file-uri "http://localhost:3449/penpot-registry/Persona%20template.penpot"}
  {:id "plants-app"
   :name "Plants-app"
-  :file-uri "http://localhost:3449/penpot-registry/plants-app.penpot"}
+  :file-uri "http://localhost:3449/penpot-registry/Plants-app.penpot"}
  {:id "podcast-app"
   :name "Podcast app"
-  :file-uri "http://localhost:3449/penpot-registry/podcast-app.penpot"}
+  :file-uri "http://localhost:3449/penpot-registry/Podcast%20app.penpot"}
  {:id "radix-ui-icons"
   :name "radix-ui-icons"
   :file-uri "http://localhost:3449/penpot-registry/radix-ui-icons.penpot"}
  {:id "safari-ios-15"
   :name "Safari iOS 15"
-  :file-uri "http://localhost:3449/penpot-registry/safari-ios-15.penpot"}
+  :file-uri "http://localhost:3449/penpot-registry/Safari%20iOS%2015.penpot"}
  {:id "smartwatch-ui"
   :name "smartwatch-ui"
   :file-uri "http://localhost:3449/penpot-registry/smartwatch-ui.penpot"}
@@ -165,22 +165,22 @@
   :file-uri "http://localhost:3449/penpot-registry/user-flow-elements.penpot"}
  {:id "ux-notes"
   :name "UX-Notes"
-  :file-uri "http://localhost:3449/penpot-registry/ux-notes.penpot"}
+  :file-uri "http://localhost:3449/penpot-registry/UX-Notes.penpot"}
  {:id "web3-iconset"
   :name "Web3 IconSet"
-  :file-uri "http://localhost:3449/penpot-registry/web3-iconset.penpot"}
+  :file-uri "http://localhost:3449/penpot-registry/Web3%20IconSet.penpot"}
  {:id "webinar_12012021"
   :name "webinar_12012021"
   :file-uri "http://localhost:3449/penpot-registry/webinar_12012021.penpot"}
  {:id "whiteboarding-mapping-kit"
   :name "Whiteboarding-mapping-kit"
-  :file-uri "http://localhost:3449/penpot-registry/whiteboarding-mapping-kit.penpot"}
+  :file-uri "http://localhost:3449/penpot-registry/Whiteboarding-mapping-kit.penpot"}
  {:id "wireframing-kit"
   :name "wireframing-kit"
   :file-uri "http://localhost:3449/penpot-registry/wireframing-kit.penpot"}
  {:id "zest-icons"
   :name "Zest Icons"
-  :file-uri "http://localhost:3449/penpot-registry/zest-icons.penpot"}
+  :file-uri "http://localhost:3449/penpot-registry/Zest%20Icons.penpot"}
  {:id "test-id-1"
   :name "测试1"
   :file-uri "http://localhost:3449/penpot-registry/TestId1.penpot"}]
