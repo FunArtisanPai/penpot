@@ -73,9 +73,6 @@
  {:id "gopher-illustrations"
   :name "Gopher-illustrations"
   :file-uri "http://localhost:3449/penpot-registry/Gopher-illustrations.penpot"}
- {:id "grid-layout-playground"
-  :name "Grid layout playground"
-  :file-uri "http://localhost:3449/penpot-registry/Grid%20layout%20playground.penpot"}
  {:id "heroicons"
   :name "Heroicons"
   :file-uri "http://localhost:3449/penpot-registry/Heroicons.penpot"}
