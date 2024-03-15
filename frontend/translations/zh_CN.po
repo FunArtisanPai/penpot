@@ -273,14 +273,14 @@ msgstr "创建新团队"
 
 #: src/app/main/ui/dashboard/sidebar.cljs
 msgid "dashboard.default-team-name"
-msgstr "你的Penpot"
+msgstr "你的InspireDraw"
 
 #: src/app/main/ui/dashboard/sidebar.cljs
 msgid "dashboard.delete-team"
 msgstr "删除团队"
 
 msgid "dashboard.download-binary-file"
-msgstr "下载Penpot文件 (.penpot)"
+msgstr "下载InspireDraw文件 (.InspireDraw)"
 
 msgid "dashboard.download-standard-file"
 msgstr "下载标准文件(.svg + .json)"
@@ -301,7 +301,7 @@ msgstr ""
 "html)添加。"
 
 msgid "dashboard.export-binary-multi"
-msgstr "下载 %s Penpot文件 (.penpot)"
+msgstr "下载 %s InspireDraw文件 (.InspireDraw)"
 
 msgid "dashboard.export-frames"
 msgstr "将画板导出为 PDF 格式"
@@ -390,7 +390,7 @@ msgstr ""
 
 msgid "dashboard.fonts.hero-text2"
 msgstr ""
-"你应当只向Penpot上传你所拥有的字体，或是你持有使用许可的字体。点击[Penpot服务条例](https://penpot.app/terms."
+"你应当只向InspireDraw上传你所拥有的字体，或是你持有使用许可的字体。点击[InspireDraw服务条例](https://penpot.app/terms."
 "html)查看更多有关内容权利的章节。或许你也想了解一下[字体许可授权] (https://www.typography.com/faq)。"
 
 #: src/app/main/ui/dashboard/fonts.cljs
@@ -687,7 +687,7 @@ msgstr "你的姓名"
 #: src/app/main/ui/dashboard/sidebar.cljs,
 #: src/app/main/ui/dashboard/file_menu.cljs
 msgid "dashboard.your-penpot"
-msgstr "你的Penpot"
+msgstr "你的InspireDraw"
 
 #: src/app/main/ui/alert.cljs
 msgid "ds.alert-ok"
@@ -763,7 +763,7 @@ msgstr "此邮箱[%s]已被标记为垃圾邮件或已被永久拉黑。"
 
 #: src/app/main/errors.cljs
 msgid "errors.feature-mismatch"
-msgstr "看起来你正在打开一个启用了'%s'功能的文件，但当前penpot版本并不支持该功能或已"
+msgstr "看起来你正在打开一个启用了'%s'功能的文件，但当前InspireDraw版本并不支持该功能或已"
 "将其禁用。"
 
 #: src/app/main/errors.cljs
@@ -1197,7 +1197,7 @@ msgid "labels.continue-with"
 msgstr "继续"
 
 msgid "labels.continue-with-penpot"
-msgstr "你可以使用Penpot帐号继续"
+msgstr "你可以使用InspireDraw帐号继续"
 
 #: src/app/main/ui/dashboard/team.cljs
 msgid "labels.copy-invitation-link"
@@ -2521,70 +2521,70 @@ msgstr "缩放到选定对象"
 
 #: src/app/main/ui/dashboard/files.cljs
 msgid "title.dashboard.files"
-msgstr "%s - Penpot"
+msgstr "%s - InspireDraw"
 
 #: src/app/main/ui/dashboard/fonts.cljs
 msgid "title.dashboard.font-providers"
-msgstr "字体提供者 - %s - Penpot"
+msgstr "字体提供者 - %s - InspireDraw"
 
 #: src/app/main/ui/dashboard/fonts.cljs
 msgid "title.dashboard.fonts"
-msgstr "字体 - %s - Penpot"
+msgstr "字体 - %s - InspireDraw"
 
 #: src/app/main/ui/dashboard/projects.cljs
 msgid "title.dashboard.projects"
-msgstr "项目 - %s - Penpot"
+msgstr "项目 - %s - InspireDraw"
 
 #: src/app/main/ui/dashboard/search.cljs
 msgid "title.dashboard.search"
-msgstr "搜索 - %s - Penpot"
+msgstr "搜索 - %s - InspireDraw"
 
 #: src/app/main/ui/dashboard/libraries.cljs
 msgid "title.dashboard.shared-libraries"
-msgstr "共享库 - %s - Penpot"
+msgstr "共享库 - %s - InspireDraw"
 
 #: src/app/main/ui/auth/verify_token.cljs, src/app/main/ui/auth.cljs
 msgid "title.default"
-msgstr "Penpot - 面向团队，设计自由"
+msgstr "InspireDraw - 面向团队，设计自由"
 
 #: src/app/main/ui/settings/feedback.cljs
 msgid "title.settings.feedback"
-msgstr "提交反馈 - Penpot"
+msgstr "提交反馈 - InspireDraw"
 
 #: src/app/main/ui/settings/options.cljs
 msgid "title.settings.options"
-msgstr "设置 - Penpot"
+msgstr "设置 - InspireDraw"
 
 #: src/app/main/ui/settings/password.cljs
 msgid "title.settings.password"
-msgstr "密码 - Penpot"
+msgstr "密码 - InspireDraw"
 
 #: src/app/main/ui/settings/profile.cljs
 msgid "title.settings.profile"
-msgstr "个人资料 - Penpot"
+msgstr "个人资料 - InspireDraw"
 
 #: src/app/main/ui/dashboard/team.cljs
 msgid "title.team-invitations"
-msgstr "邀请函 - %s - Penpot"
+msgstr "邀请函 - %s - InspireDraw"
 
 #: src/app/main/ui/dashboard/team.cljs
 msgid "title.team-members"
-msgstr "成员 - %s - Penpot"
+msgstr "成员 - %s - InspireDraw"
 
 #: src/app/main/ui/dashboard/team.cljs
 msgid "title.team-settings"
-msgstr "设置 - %s - Penpot"
+msgstr "设置 - %s - InspireDraw"
 
 msgid "title.team-webhooks"
-msgstr "Webhooks - %s - Penpot"
+msgstr "Webhooks - %s - InspireDraw"
 
 #: src/app/main/ui/inspect.cljs, src/app/main/ui/viewer.cljs
 msgid "title.viewer"
-msgstr "%s - 预览模式）- Penpot"
+msgstr "%s - 预览模式）- InspireDraw"
 
 #: src/app/main/ui/workspace.cljs
 msgid "title.workspace"
-msgstr "%s - Penpot"
+msgstr "%s - InspireDraw"
 
 msgid "viewer.breaking-change.description"
 msgstr "此共享的链接已失效。创建一个新的链接或向所有者索取一个新的链接。"
@@ -4717,7 +4717,7 @@ msgstr "前一项"
 
 #: src/app/main/ui/onboarding/questions.cljs
 msgid "questions.questions-how-are-you-planning-to-use-penpot"
-msgstr "你计划用Penpot做什么？"
+msgstr "你计划用InspireDraw做什么？"
 
 #: src/app/main/ui/onboarding/questions.cljs
 msgid "questions.sketch"
@@ -4737,11 +4737,11 @@ msgstr "开始"
 
 #: src/app/main/ui/onboarding/questions.cljs
 msgid "questions.test-penpot-to-see-if-its-a-fit-for-team"
-msgstr "试用Penpot，来看它是否适合团队 "
+msgstr "试用InspireDraw，来看它是否适合团队 "
 
 #: src/app/main/ui/onboarding/questions.cljs
 msgid "questions.try-out-before-using-penpot-on-premise"
-msgstr "在本地部署Penpot前进行试用"
+msgstr "在本地部署InspireDraw前进行试用"
 
 #: src/app/main/ui/onboarding/questions.cljs
 msgid "questions.work-in-concept-ideas"
@@ -4906,7 +4906,7 @@ msgstr "开发者"
 
 #: src/app/main/ui/onboarding/questions.cljs
 msgid "questions.discover-more-about-penpot"
-msgstr "深入了解Penpot的精彩之处"
+msgstr "深入了解InspireDraw的精彩之处"
 
 #: src/app/main/ui/onboarding/questions.cljs
 msgid "questions.manager"
