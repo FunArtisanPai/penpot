@@ -3042,7 +3042,7 @@ msgstr "Shared Libraries - %s - Penpot"
 
 #: src/app/main/ui/auth/verify_token.cljs, src/app/main/ui/auth.cljs
 msgid "title.default"
-msgstr "Penpot - Design Freedom for Teams"
+msgstr "InspireDraw - Design Freedom for Teams"
 
 #: src/app/main/ui/settings/access-tokens.cljs
 msgid "title.settings.access-tokens"
